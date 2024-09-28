@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button, TextField, Container, Typography } from "@mui/material";
 
 const Login = () => {
   const [name, setName] = useState("");
@@ -17,35 +18,58 @@ const Login = () => {
     }
   };
   return (
-    <div>
-        <h1>
-            Login Page
-        </h1>
+    <Container maxWidth="sm">
+      <div>
+        <Typography variant="h1">
+          Login Page
+        </Typography>
         <div>
           {text && !auth && (
-            <p>
-                {text}
-            </p>
+            <Typography variant="body1" >
+              {text}
+            </Typography>
           )}
         </div>
         {!auth && (
           <form onSubmit={handleSubmit}>
             <div>
-                Username:<input type="text" name="name" id="name" label="Username" value={name} onChange={(e) => setName(e.target.value)} required />
+              <TextField
+                id="name"
+                label="name"
+                variant="outlined"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
             </div>
+
             <div>
-                    Password:<input type="text" name="pass" label="Password" id="pass" value={pass} onChange={(e) => setPass(e.target.value)} required/>
-                
+              <TextField
+                id="pass"
+                label="Pass"
+                type="password"
+                variant="outlined"
+                value={pass}
+                onChange={(e) => setPass(e.target.value)}
+                required
+              />
             </div>
-            <button type="submit">Submit</button>
+
+            <Button
+              type="submit"
+              variant="contained"
+            >
+              Submit
+            </Button>
           </form>
         )}
         {auth && (
-            <p>
-                Welcome, user!
-            </p>
+          <Typography variant="body1">
+            Welcome, user!
+          </Typography>
         )}
       </div>
+    </Container>
   );
 };
 
