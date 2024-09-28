@@ -1,13 +1,11 @@
 import { useState } from "react";
-import { Button, TextField, Container, Typography } from "@mui/material";
+let Login = () => {
+  let [name, setName] = useState("");
+  let [pass, setPass] = useState("");
+  let [text, setText] = useState("");
+  let [auth, setAuth] = useState(false);
 
-const Login = () => {
-  const [name, setName] = useState("");
-  const [pass, setPass] = useState("");
-  const [text, setText] = useState("");
-  const [auth, setAuth] = useState(false);
-
-  const handleSubmit = (e) => {
+  let handleSubmit = (e) => {
     e.preventDefault();
     if (name === "user" && pass === "password") {
       setAuth(true);
@@ -18,39 +16,36 @@ const Login = () => {
     }
   };
   return (
-    <Container maxWidth="sm">
       <div>
-        <Typography variant="h1">
-          Login Page
-        </Typography>
+        <h1>
+            Login Page
+        </h1>
         <div>
           {text && !auth && (
-            <Typography variant="body1" >
-              {text}
-            </Typography>
+            <p>
+                {text}
+            </p>
           )}
         </div>
         {!auth && (
           <form onSubmit={handleSubmit}>
-            <label>Username:</label>
-            <input type="text" onChange={(e) => setName(e.target.value)} required  />
-            <label>Password:</label>
-            <input type="password" onChange={(e) => setPass(e.target.value)} required />
-            <Button
-              type="submit"
-              variant="contained"
-            >
-              Submit
-            </Button>
+            <div>
+                <label>Username:</label>
+                <input type="text" placeholder="username" onChange={(e) => setName(e.target.value)} required  />
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" placeholder="password" onChange={(e) => setPass(e.target.value)} required />
+            </div>            
+            <button type="submit">Submit</button>
           </form>
         )}
         {auth && (
-          <Typography variant="body1">
+          <p>
             Welcome, user!
-          </Typography>
+          </p>
         )}
       </div>
-    </Container>
   );
 };
 
