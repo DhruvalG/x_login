@@ -34,8 +34,8 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <div>
               <TextField
-                id="name"
-                label="name"
+                id="username"
+                label="Username"
                 variant="outlined"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -45,8 +45,8 @@ const Login = () => {
 
             <div>
               <TextField
-                id="pass"
-                label="Pass"
+                id="password"
+                label="Password"
                 type="password"
                 variant="outlined"
                 value={pass}
