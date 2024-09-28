@@ -31,10 +31,10 @@ const Login = () => {
         {!auth && (
           <form onSubmit={handleSubmit}>
             <div>
-                Username:<input type="text" name="name" id="name" label="Username" value={name} placeholder="username" onChange={(e) => setName(e.target.value)} required />
+                Username:<input type="text" name="name" id="name" label="Username" value={name} onChange={(e) => setName(e.target.value)} required />
             </div>
             <div>
-                    Password:<input type="text" name="pass" label="Password" id="pass" value={pass} placeholder="password" onChange={(e) => setPass(e.target.value)} required/>
+                    Password:<input type="text" name="pass" label="Password" id="pass" value={pass} onChange={(e) => setPass(e.target.value)} required/>
                 
             </div>
             <button type="submit">Submit</button>
