@@ -32,8 +32,10 @@ const Login = () => {
         </div>
         {!auth && (
           <form onSubmit={handleSubmit}>
-            <label>Username:<input type="text" onChange={(e) => setName(e.target.value)} required  /></label>
-            <label>Password:<input type="password" onChange={(e) => setPass(e.target.value)} required /></label>
+            <label>Username:</label>
+            <input type="text" onChange={(e) => setName(e.target.value)} required  />
+            <label>Password:</label>
+            <input type="password" onChange={(e) => setPass(e.target.value)} required />
             <Button
               type="submit"
               variant="contained"
